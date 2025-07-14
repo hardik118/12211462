@@ -168,12 +168,6 @@ Click rate analytics over time
 QR code generation for shortened links
 
 
-📸 Preview
-### 🏠 Home Page
-![Home Page](./TestProoofs/home.png)
-
-![Home Page](TestProoofs/home.png)
-
 
 📌 Summary
 This project demonstrates:
@@ -188,3 +182,44 @@ Reusable UI components with a great UX
 
 Logging practices useful in real-world debugging and auditing
 
+```
+
+## 📸 Screenshots & Testing Proof
+
+---
+
+### 🏠 Home Page
+The main landing page of the URL Shortener app. Users can input up to 5 long URLs, with optional expiry time and custom shortcodes.
+![Home Page](./TestProoofs/home.png)
+
+---
+
+### 🧪 Home Page with Input
+Shows a filled-out form with multiple entries, ready for shortening. Demonstrates optional fields like validity and shortcode.
+![Home Page Filled](./TestProoofs/hometest.png)
+
+---
+
+### 🔗 Result Page
+Once the URLs are shortened, results appear below with the original URL, shortened link, and expiry timestamp.
+![Result Page](./TestProoofs/result.png)
+
+---
+
+### 📊 Stats Page
+Displays a list of all previously shortened URLs, total clicks, expiry, and a detailed click history including referrer and IP.
+![Stats Page](./TestProoofs/stats.png)
+
+---
+
+### 🧪 Postman – Create Short URL
+This Postman request hits the `POST /shorturls` route with required and optional fields. A valid response returns a short link and expiry.
+![Postman Create](./TestProoofs/stattest.png)
+
+---
+
+### 🧪 Postman – Get Stats
+This Postman request hits the `GET /stats/:shortcode` endpoint to retrieve click statistics and metadata for the given shortcode.
+![Postman Stats](./TestProoofs/stats.png)
+
+---

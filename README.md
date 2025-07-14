@@ -55,29 +55,7 @@ This project follows a modular **client-server architecture** with clear separat
 
 ## 📁 Folder Structure
 
-├── backend/
-│ ├── controllers/
-│ │ └── shorturlController.ts
-│ ├── db/
-│ │ └── db.ts
-│ ├── routes/
-│ │ └── shorturlRoutes.ts
-│ ├── services/
-│ │ └── shortUrlService.ts
-│ ├── utils/
-│ │ └── backendLogger.ts
-│ │ └── generateCode.ts
-│ └── index.ts
-├── frontend/
-│ ├── components/
-│ │ ├── ShortenerForm.tsx
-│ │ └── StatsPage.tsx
-│ ├── api/
-│ │ └── logger.ts
-│ ├── pages/
-│ │ └── Home.tsx
-│ └── main.tsx
-└── README.md
+<pre lang="text"> . ├── backend/ │ ├── controllers/ │ │ └── shorturlController.ts │ ├── db/ │ │ └── db.ts │ ├── routes/ │ │ └── shorturlRoutes.ts │ ├── services/ │ │ └── shortUrlService.ts │ ├── utils/ │ │ ├── backendLogger.ts │ │ └── generateCode.ts │ └── index.ts ├── frontend/ │ ├── components/ │ │ ├── ShortenerForm.tsx │ │ └── StatsPage.tsx │ ├── api/ │ │ └── logger.ts │ ├── pages/ │ │ └── Home.tsx │ └── main.tsx └── README.md </pre>
 
 yaml
 Copy

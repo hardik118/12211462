@@ -167,6 +167,14 @@ Click rate analytics over time
 
 QR code generation for shortened links
 
+
+📸 Preview
+### 🏠 Home Page
+![Home Page](./TestProoofs/home.png)
+
+![Home Page](TestProoofs/home.png)
+
+
 📌 Summary
 This project demonstrates:
 

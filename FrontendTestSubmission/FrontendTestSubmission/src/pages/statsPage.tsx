@@ -5,9 +5,10 @@ import {
   List,
   ListItem,
   ListItemText,
-  Divider,
   CircularProgress,
   Alert,
+  Card,
+  CardContent,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -35,7 +36,6 @@ export default function StatsPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Optionally: Load shortcodes from localStorage or memory
     const stored = sessionStorage.getItem("shortcodes");
     if (stored) {
       setShortcodes(JSON.parse(stored));
@@ -49,7 +49,7 @@ export default function StatsPage() {
       try {
         const results: UrlStats[] = [];
         for (const code of shortcodes) {
-          const res = await axios.get(`http://localhost:3001/shorturls/${code}`);
+          const res = await axios.get(`http://localhost:3001/stats/${code}`);
           results.push(res.data);
           await logFrontend("info", "component", `Fetched stats for ${code}`);
         }
@@ -70,30 +70,60 @@ export default function StatsPage() {
   if (error) return <Alert severity="error">{error}</Alert>;
 
   return (
-    <Box>
-      <Typography variant="h5" sx={{ mb: 2 }}>Short URL Stats</Typography>
-      {stats.map((s, idx) => (
-        <Box key={idx} sx={{ mb: 4 }}>
-          <Typography variant="h6">Shortcode: {s.shortcode}</Typography>
-          <Typography>Original URL: {s.originalUrl}</Typography>
-          <Typography>Created At: {new Date(s.createdAt).toLocaleString()}</Typography>
-          <Typography>Expires At: {new Date(s.expiry).toLocaleString()}</Typography>
-          <Typography>Total Clicks: {s.totalClicks}</Typography>
+    <Box sx={{ maxWidth: 900, mx: "auto", mt: 6, px: 2 }}>
+      <Typography
+        variant="h4"
+        sx={{
+          mb: 4,
+          fontWeight: "bold",
+          color: "#1976d2", // Blue
+          textAlign: "center",
+        }}
+      >
+        Short URL Statistics
+      </Typography>
 
-          <Typography sx={{ mt: 1 }}>Click History:</Typography>
-          <List>
-            {s.clickHistory.map((click, i) => (
-              <ListItem key={i} alignItems="flex-start">
-                <ListItemText
-                  primary={`Clicked at: ${new Date(click.timestamp).toLocaleString()}`}
-                  secondary={`Referrer: ${click.referrer}, Location: ${click.location}`}
-                />
-              </ListItem>
-            ))}
-          </List>
-          <Divider sx={{ mt: 2 }} />
-        </Box>
+      {stats.map((s, idx) => (
+        <Card key={idx} sx={{ mb: 4, borderRadius: 3, boxShadow: 3 }}>
+          <CardContent>
+            <Typography variant="h6" color="primary" sx={{ mb: 1 }}>
+              Shortcode: {s.shortcode}
+            </Typography>
+            <Typography variant="body1">
+              <strong>Original URL:</strong> {s.originalUrl}
+            </Typography>
+            <Typography variant="body1">
+              <strong>Created At:</strong> {new Date(s.createdAt).toLocaleString()}
+            </Typography>
+            <Typography variant="body1">
+              <strong>Expires At:</strong> {new Date(s.expiry).toLocaleString()}
+            </Typography>
+            <Typography variant="body1">
+              <strong>Total Clicks:</strong> {s.totalClicks}
+            </Typography>
+
+            <Typography variant="subtitle1" sx={{ mt: 2, fontWeight: "bold" }}>
+              Click History:
+            </Typography>
+            <List dense>
+              {s.clickHistory.map((click, i) => (
+                <ListItem key={i} alignItems="flex-start" disablePadding sx={{ mb: 1 }}>
+                  <ListItemText
+                    primary={`Clicked at: ${new Date(click.timestamp).toLocaleString()}`}
+                    secondary={`Referrer: ${click.referrer || "N/A"}, Location: ${click.location}`}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </CardContent>
+        </Card>
       ))}
+
+      {!stats.length && (
+        <Typography align="center" color="text.secondary">
+          No statistics available. Please shorten some URLs first.
+        </Typography>
+      )}
     </Box>
   );
 }

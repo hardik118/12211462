@@ -10,6 +10,6 @@
   },
   "include": [
     "src", 
-    "../logging-middleware/src" // <-- ALLOW import from here
+    "../LoggingMiddleware/src" // <-- ALLOW import from here
   ]
 }

@@ -56,9 +56,9 @@ FrontendTestSubmission/
 ## How the Functions Work
 
 - **Component-based Structure:** Each UI element (button, input, layout) is a separate component in `src/components/`.
-- **Routing:** If using React Router (or similar), routes are defined in `App.tsx`, mapping URLs to files in `src/pages/`.
-- **State Management:** Local state is handled in components using React `useState`, and global state (if any) is set up in context providers or state management libraries.
-- **API Calls:** Any data fetching logic is abstracted into custom hooks (e.g., `useFetch`) or utility files.
+- **Routing:**  routes are defined in `App.tsx`, mapping URLs to files in `src/pages/`.
+- **State Management:** Local state is handled in components using React `useState`, and global state  is set up in context providers
+- **API Calls:** Any data fetching logic is abstracted into custom hooks (e.g., `useFetch`).
 - **Reusability:** Shared logic is kept in `hooks/` and `utils/` to avoid duplication.
 
 ---

@@ -55,7 +55,18 @@ This project follows a modular **client-server architecture** with clear separat
 
 ## 📁 Folder Structure
 
-<pre lang="text"> . ├── backend/ │ ├── controllers/ │ │ └── shorturlController.ts │ ├── db/ │ │ └── db.ts │ ├── routes/ │ │ └── shorturlRoutes.ts │ ├── services/ │ │ └── shortUrlService.ts │ ├── utils/ │ │ ├── backendLogger.ts │ │ └── generateCode.ts │ └── index.ts ├── frontend/ │ ├── components/ │ │ ├── ShortenerForm.tsx │ │ └── StatsPage.tsx │ ├── api/ │ │ └── logger.ts │ ├── pages/ │ │ └── Home.tsx │ └── main.tsx └── README.md </pre>
+```plaintext
+├── backend/
+│   ├── controllers/
+│   ├── db/
+│   ├── routes/
+│   └── ...
+├── frontend/
+│   ├── components/
+│   ├── pages/
+│   └── ...
+└── README.md
+```
 
 yaml
 Copy
@@ -90,28 +101,18 @@ Edit
 ### 🧩 Backend Setup
 
 ```bash
-cd backend
+cd BackendTestSubmission 
 npm install
 npm run dev  # or `npm run start` for production
 The backend runs by default on http://localhost:3001.
 
 🌐 Frontend Setup
-bash
-Copy
-Edit
-cd frontend
+cd FrontendTestSubmission
+cd FrontendTestSubmission
 npm install
 npm run dev
-The frontend runs by default on http://localhost:5173.
+The frontend runs by default on http://localhost:3001.
 
-To change the frontend port, update the vite.config.ts:
-
-ts
-Copy
-Edit
-server: {
-  port: 5173
-}
 🧪 Test Process
 Manual validation of shortening form (valid/invalid URLs)
 
